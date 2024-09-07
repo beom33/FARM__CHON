@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/main}">
+<section layout:fragment="content">
+    <h1>게시글 수정</h1>
+    <form name="frmSave" method="post" th:action="${@utils.redirectUrl('/board/posts/save')}" autocomplete="off" class="editForm" th:object="${requestBoard}">
+        <input type="hidden" name="mode" value="edit">
+
+        <th:block th:replace="~{board/_postform::form}"></th:block>
+
+        <div class="submit_btns">
+            <button type="button" class="btn" onclick="window.location.href='/board/posts';">뒤로가기</button>
+            <a href="#" class="btn" th:href="@{http://localhost:4000/board/update/{seq}(seq=${seq})}">수정하러 가기</a>
+
+        </div>
+    </form>
+</section>
+</html>

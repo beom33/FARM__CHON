@@ -1,0 +1,21 @@
+server:
+  port: 3100
+
+spring:
+  application:
+    name: config-server
+
+  profiles:
+    active: native,git
+
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configs
+        git:
+          uri: https://github.com/project34plus/project5_config.git
+          searchPaths: configs
+          default-label: master
+encrypt:
+  key: ${secretKey}
